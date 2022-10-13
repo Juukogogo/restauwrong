@@ -52,7 +52,7 @@ private:
         int menu_price_extra;
 
         node_read_menu() {
-            link = nullptr;
+            link = NULL;
             menu_name = "";
             menu_ID = "";
             menu_price = 0;
@@ -76,16 +76,16 @@ public:
     void add_read_menu_txt(string name, string menu_ID, int menu_price, int menu_price_extra) {
         auto *temp = new node_read_menu();
 
-        temp->menu_name = std::move(name);
-        temp->menu_ID = std::move(menu_ID);
+        temp->menu_name = name;
+        temp->menu_ID = menu_ID;
         temp->menu_price = menu_price;
         temp->menu_price_extra = menu_price_extra;
         if (count_menu == 0) {
-            temp->link = nullptr;
+            temp->link = NULL;
             head_menu = temp;
             tail_menu = temp;
         } else {
-            temp->link = nullptr;
+            temp->link = NULL;
             tail_menu->link = temp;
             tail_menu = tail_menu->link;
         }
@@ -99,34 +99,45 @@ public:
         string read_pricestr, read_priceextra_str;
         string line;
         ifstream file;
-        string d = "\t";
+        string d = ",";
         file.open("..//menu.txt", ios::in);
         if (file.fail()) {
             cout << "Can't open menu file" << endl;
         } else {
             while (getline(file, line)) {
+
                 read_ID = line.substr(0, line.find(d));
-                line.erase(line.find(d) + d.length());
+                          line.erase(0,line.find(d) + d.length());
                 read_name = line.substr(0, line.find(d));
-                line.erase(line.find(d) + d.length());
+                            line.erase(0,line.find(d) + d.length());
                 read_pricestr = line.substr(0, line.find(d));
-                line.erase(line.find(d) + d.length());
+                                line.erase(0,line.find(d) + d.length());
                 read_priceextra_str = line.substr(0, line.find(d));
-                line.erase(line.find(d) + d.length());
-                stringstream read(read_pricestr);
-                read >> read_price;
-                stringstream read_extraprice(read_priceextra_str);
-                read_extraprice >> read_price_extra;
+                                      line.erase(0,line.find(d) + d.length());
+
+                read_price = stoi(read_pricestr);
+                read_price_extra = stoi(read_priceextra_str);
                 add_read_menu_txt(read_name, read_ID, read_price, read_price_extra);
             }
             file.close();
         }
     }
 
+    void test_printmenu(){
+        auto * temp = new node_read_menu();
+        temp = head_menu;
+        while ( temp != NULL ){
+            cout << temp->menu_name << " " << temp->menu_price << " " << temp->menu_price_extra << endl;
+            temp = temp->link;
+        }
+    }
+
+
 };
 int main() {
     menu_list menu;
     menu.read_file_menu_txt();
+    menu.test_printmenu();
     cout << "huakuy mak" << endl;
     return 0;
 }
