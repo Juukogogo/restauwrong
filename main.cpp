@@ -104,8 +104,12 @@ class linked_list{
 
 
 int main(){
+<<<<<<< HEAD
     linked_list obj;
     obj.read_file_menu_txt();
     
+=======
+    cout << "huakuy mak" << endl;
+>>>>>>> a2c6e1df78dbe4b83bc557ef80c343548eb50183
     return 0;
 }
