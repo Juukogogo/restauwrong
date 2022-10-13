@@ -1,7 +1,8 @@
-01  Hang-le curry   80  10
-02  Papaya salad    60  10
-03  Roast Chicken   80  10
-04  Spicy minced beef   60  15
-05  Spicy minced pork   50  10
-06  Spicy minced chicken    50  10
-07  Stewed pork leg on rice 50  10
+01,Hang-le curry,80,10
+02,Papaya salad,60,10
+03,Roast Chicken,80,10
+04,Spicy minced beef,60,15
+05,Spicy minced pork,50,10
+06,Spicy minced chicken,50,10
+07,Stewed pork leg on rice,50,10
+09,PluemIdiot2,9999,999999
