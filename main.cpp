@@ -151,16 +151,65 @@ public:
         update_file_menu();
     }
 
+    void delete_menu(string menu_name){
+        auto * main = new node_read_menu();
+        main = head_menu;
+        auto * temp = main;
+        node_read_menu * prev = NULL;
+        if ( temp != NULL && temp->menu_name == menu_name )
+        {
+            main = temp->link;
+            delete temp;
+            return;
+        }
+        else
+        {
+            while ( temp != NULL && temp->menu_name != menu_name )
+            {
+                prev = temp;
+                temp = temp->link;
+            }
+            if ( temp == NULL )
+                return;
+
+            prev->link = temp->link;
+            delete temp;
+        }
+        update_file_menu();
+    }
+
+    void test_print(){
+        auto *temp = new node_read_menu();
+        temp = head_menu;
+        while ( temp != NULL ){
+            cout << temp->menu_ID << " " << temp->menu_name << " " << temp->menu_price << endl;
+            temp = temp->link;
+        }
+    }
+
 };
 int main() {
     menu_list menu;
     menu.read_file_menu_txt();
-
+    menu.test_print();
     // test add menu and updatefile
     string testname,testid;
     int testprice,testprice_extra;
     cin >> testid >> testname >> testprice >> testprice_extra;
     menu.add_menu(testid,testname,testprice,testprice_extra);
+
+    cin >> testid >> testname >> testprice >> testprice_extra;
+    menu.add_menu(testid,testname,testprice,testprice_extra);
+
+    // test delete menu
+    string testdelete;
+    cin  >> testdelete;
+    menu.delete_menu(testdelete);
+    menu.test_print();
+    cout << "====" << endl;
+    menu.test_print();
+    cout << "====" << endl;
+    menu.test_print();
 
     return 0;
 }
