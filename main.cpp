@@ -6,18 +6,18 @@ using namespace std;
 
 
 
-class linked_list{
+class menu_list{
     private:
-        class node_read{
+        class node_read_menu{
              public:
-                node_read *link;
+                node_read_menu *link;
                 string menu_name;
                 string menu_amount;
                 string menu_ID;
                 string menu_ingredients;
                 int    menu_price;
                 
-                node_read(){
+                node_read_menu(){
                     link=NULL;
                     menu_name = "";
                     menu_amount = "";
@@ -26,18 +26,19 @@ class linked_list{
                     menu_price = 0;
                 }
 
+
         };
     public:
         int count_menu;
-        node_read *head_menu;
-        node_read *tail_menu;
+        node_read_menu *head_menu;
+        node_read_menu *tail_menu;
 
-        linked_list(){
+        menu_list(){
             count_menu = 0;
         }    
 
         void add_read_menu_txt(string name, string menu_amount, string menu_ID, int menu_price ){
-            auto *temp = new node_read();
+            auto *temp = new node_read_menu();
 
            temp->menu_name = name;
             temp->menu_amount = menu_amount;
@@ -90,7 +91,7 @@ class linked_list{
             data.open("..//menu.txt",ios::out);
             if(data.is_open())\
             {
-                auto *temp = new node_read();
+                auto *temp = new node_read_menu();
                 temp = head_menu;
                 while(temp != NULL )
                 {
@@ -106,8 +107,8 @@ class linked_list{
 
 };
 int main(){
-    linked_list obj;
-    obj.read_file_menu_txt();
+    menu_list menu;
+    menu.read_file_menu_txt();
     cout << "huakuy mak" << endl;
     return 0;
 }
