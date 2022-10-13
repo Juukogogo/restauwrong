@@ -1,2 +1,1 @@
-24200071    Hang-le curry   3   60
-67315859    Roast chicken   4   80
+ID:01 MenuName:Omelet Price:40 Extra:+10 SideDish:-10 Kid:-20 Pork:+10 Shrimp:+20 Chicken:+10 Crab:+40 CrispyPork:+20 Beef:+25 Goat:+50 Mutton:+40 Roe:+20 Vegan:0 None:-10 Sold:0 Fav:Pork
