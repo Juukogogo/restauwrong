@@ -36,13 +36,13 @@ class linked_list{
             count_menu = 0;
         }    
 
-        void add_read_menu_txt(string menu_name, string menu_amount, string menu_ID, int menu_price ){
+        void add_read_menu_txt(string name, string menu_amount, string menu_ID, int menu_price ){
             auto *temp = new node_read();
 
-            this->menu_name = menu_name;
-            this->menu_amount = menu_amount;
-            this->menu_ID = menu_ID;
-            this->menu_price = menu_price;
+           temp->menu_name = name;
+            temp->menu_amount = menu_amount;
+            temp->menu_ID = menu_ID;
+            temp->menu_price = menu_price;
             if(count_menu == 0){
                 temp->link = NULL;
                 head_menu = temp;
@@ -59,6 +59,7 @@ class linked_list{
         void read_file_menu_txt(){
             string read_name, read_ID, read_amount;
             int    read_price;
+            string   read_pricestr;
             string line;
             ifstream file;
             string d = "\t";
@@ -66,16 +67,17 @@ class linked_list{
             if(file.fail()){
                 cout << "Can't open menu file" << endl;
             }else {
-                while (getline(file, line)
-                {
+                while (getline(file, line)){
                     read_ID = line.substr(0, line.find(d)) ;
                               line.erase(line.find(d) + d.length());
                     read_name = line.substr(0, line.find(d)) ;
                                 line.erase(line.find(d) + d.length());
                     read_amount = line.substr(0, line.find(d)) ;
                                   line.erase(line.find(d) + d.length());
-                    read_price = line.substr(0, line.find(d)) ;
+                    read_pricestr = line.substr(0, line.find(d)) ;
                                  line.erase(line.find(d) + d.length());
+                    stringstream read(read_pricestr);
+                    read >> read_price;
                     add_read_menu_txt(read_name, read_amount, read_ID, read_price );                                                                                                       
                 }
                 file.close();
@@ -100,16 +102,12 @@ class linked_list{
                 cout << "Sorry, Can't update_file_menu" << endl;
             }
         }
-    
 
 
+};
 int main(){
-<<<<<<< HEAD
     linked_list obj;
     obj.read_file_menu_txt();
-    
-=======
     cout << "huakuy mak" << endl;
->>>>>>> a2c6e1df78dbe4b83bc557ef80c343548eb50183
     return 0;
 }
