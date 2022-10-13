@@ -5,7 +5,14 @@
 #include <utility>
 
 using namespace std;
-
+class member{
+public:
+    string ID;
+    string name;
+    string Username;
+    string password;
+    int type;
+};
 class promotion {
 public:
     string ID;
@@ -203,7 +210,9 @@ int main() {
     menu_list menu;
     menu.read_file_menu_txt();
 
-
+    print_menu_line();
+    cout << setw(43) << left << "|" <<"MENU" << setw(43) << right << "|" << endl;
+    print_menu_line();
     menu.test_print();
     int main_menu_choice;
     string testname,testid;
