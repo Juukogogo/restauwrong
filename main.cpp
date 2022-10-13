@@ -151,6 +151,7 @@ public:
         update_file_menu();
     }
 
+    // function delete menu ( delete node ) and then update file menu.txt automatics
     void delete_menu(string menu_name){
         auto * main = new node_read_menu();
         main = head_menu;
@@ -178,7 +179,9 @@ public:
         update_file_menu();
     }
 
-    void test_print(){
+    // test print data
+    void test_print()
+    {
         auto *temp = new node_read_menu();
         temp = head_menu;
         while ( temp != NULL ){
