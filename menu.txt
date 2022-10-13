@@ -1,1 +1,7 @@
-ID:01 MenuName:Omelet Price:40 Extra:+10 SideDish:-10 Kid:-20 Pork:+10 Shrimp:+20 Chicken:+10 Crab:+40 CrispyPork:+20 Beef:+25 Goat:+50 Mutton:+40 Roe:+20 Vegan:0 None:-10 Sold:0 Fav:Pork
+01  Hang-le curry   80  10
+02  Papaya salad    60  10
+03  Roast Chicken   80  10
+04  Spicy minced beef   60  15
+05  Spicy minced pork   50  10
+06  Spicy minced chicken    50  10
+07  Stewed pork leg on rice 50  10
