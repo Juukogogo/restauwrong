@@ -1,0 +1,3 @@
+C:/Users/kawin/CLionProjects/restauwrong/cmake-build-debug/CMakeFiles/restauwrong.dir
+C:/Users/kawin/CLionProjects/restauwrong/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/kawin/CLionProjects/restauwrong/cmake-build-debug/CMakeFiles/rebuild_cache.dir
