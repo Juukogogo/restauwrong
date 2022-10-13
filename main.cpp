@@ -2,6 +2,6 @@
 using namespace std;
 
 int main(){
-    cout << "Pluem kod kak " << endl;
+    cout << "huakuy " << endl;
     return 0;
 }
