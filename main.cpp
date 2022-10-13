@@ -152,12 +152,12 @@ public:
     }
 
     // function delete menu ( delete node ) and then update file menu.txt automatics
-    void delete_menu(string menu_name){
+    void delete_menu(string menu_ID){
         auto * main = new node_read_menu();
         main = head_menu;
         auto * temp = main;
-        node_read_menu * prev = NULL;
-        if ( temp != NULL && temp->menu_name == menu_name )
+        node_read_menu * prev = nullptr;
+        if ( temp != nullptr && temp->menu_ID == menu_ID )
         {
             main = temp->link;
             delete temp;
@@ -165,12 +165,12 @@ public:
         }
         else
         {
-            while ( temp != NULL && temp->menu_name != menu_name )
+            while ( temp != nullptr && temp->menu_ID != menu_ID )
             {
                 prev = temp;
                 temp = temp->link;
             }
-            if ( temp == NULL )
+            if ( temp == nullptr )
                 return;
 
             prev->link = temp->link;
@@ -191,27 +191,59 @@ public:
     }
 
 };
+
+static void print_menu_line(){
+    for (int i = 1 ; i <= 90 ; i++){
+        cout << "=";
+    }
+    cout << endl;
+}
+
 int main() {
     menu_list menu;
     menu.read_file_menu_txt();
+
+
     menu.test_print();
-    // test add menu and updatefile
+    int main_menu_choice;
     string testname,testid;
     int testprice,testprice_extra;
-    cin >> testid >> testname >> testprice >> testprice_extra;
-    menu.add_menu(testid,testname,testprice,testprice_extra);
+    do{
+        cout << "1:add 2:delete";
+        cin >> main_menu_choice;
+        switch (main_menu_choice) {
+            // test add menu and updatefile
+            case 1:{
+                cout << "id";
+                cin >> testid;
+                cout << "name";
+                cin  >> testname;
+                cout << "price";
+                cin>> testprice ;
+                cout << "ex price";
+                cin>> testprice_extra;
+                menu.add_menu(testid,testname,testprice,testprice_extra);
+                menu.test_print();
+                cout << "====" << endl;
+                break;
+            }
+            case 2:{
+                string testdelete;
+                cin  >> testdelete;
+                menu.delete_menu(testdelete);
+                menu.test_print();
+                cout << "====" << endl;
+            }
+        }
 
-    cin >> testid >> testname >> testprice >> testprice_extra;
-    menu.add_menu(testid,testname,testprice,testprice_extra);
+    } while (main_menu_choice !=3);
+
+
 
     // test delete menu
-    string testdelete;
-    cin  >> testdelete;
-    menu.delete_menu(testdelete);
-    menu.test_print();
-    cout << "====" << endl;
-    menu.test_print();
-    cout << "====" << endl;
+
+
+
     menu.test_print();
 
     return 0;
